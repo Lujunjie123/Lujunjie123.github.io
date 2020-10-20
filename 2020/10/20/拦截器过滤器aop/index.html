@@ -15,12 +15,13 @@
 <meta property="og:site_name" content="陆俊杰的个人博客">
 <meta property="og:description" content="过滤器实现javax.servlet.Filter1234567891011121314151617181920public class TimeFilter implements Filter&amp;#123;    @Override    public void init(FilterConfig filterConfig) throws ServletException &amp;#123;">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://github.com/Lujunjie123.github.io/Lujunjie123/Lujunjie123.github/2020/10/20/%E6%8B%A6%E6%88%AA%E5%99%A8%E8%BF%87%E6%BB%A4%E5%99%A8aop/image-20200924100804044.png">
 <meta property="og:image" content="https://github.com/Lujunjie123.github.io/Lujunjie123/Lujunjie123.github/image-20200924100804044.png">
 <meta property="article:published_time" content="2020-10-20T11:43:58.000Z">
-<meta property="article:modified_time" content="2020-10-20T11:59:38.725Z">
+<meta property="article:modified_time" content="2020-10-20T12:04:35.244Z">
 <meta property="article:author" content="Lujunjie">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://github.com/Lujunjie123.github.io/Lujunjie123/Lujunjie123.github/image-20200924100804044.png">
+<meta name="twitter:image" content="https://github.com/Lujunjie123.github.io/Lujunjie123/Lujunjie123.github/2020/10/20/%E6%8B%A6%E6%88%AA%E5%99%A8%E8%BF%87%E6%BB%A4%E5%99%A8aop/image-20200924100804044.png">
   
     <link rel="alternative" href="/atom.xml" title="陆俊杰的个人博客" type="application/atom+xml">
   
@@ -192,6 +193,14 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebConfig</span> <span class="keyword">extends</span> <span class="title">WebMvcConfigurerAdapter</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> TimeInterceptor timeInterceptor;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addInterceptors</span><span class="params">(InterceptorRegistry registry)</span> </span>&#123;</span><br><span class="line">        registry.addInterceptor(timeInterceptor);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>过滤器要先于拦截器执行，晚于拦截器结束。下图很好的描述了它们的执行时间区别</p>
+<img src="/Lujunjie123.github.io/Lujunjie123/Lujunjie123.github/2020/10/20/%E6%8B%A6%E6%88%AA%E5%99%A8%E8%BF%87%E6%BB%A4%E5%99%A8aop/image-20200924100804044.png" class title="This is an example image">
+
+
+
+
+
+
+
 <p><img src="/Lujunjie123.github.io/Lujunjie123/Lujunjie123.github/image-20200924100804044.png" alt="image-20200924100804044"></p>
 <h2 id="AOP记录用户日志"><a href="#AOP记录用户日志" class="headerlink" title="AOP记录用户日志"></a>AOP记录用户日志</h2><h3 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- aop依赖 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-aop<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
